@@ -40,7 +40,7 @@ pipeline {
       steps {
         script {
           kubeconfig(credentialsId: 'kubecon') {
-            sh 'kubectl apply -f deployment.yaml'
+            kubernetesDeploy(configs: "deployment.yaml", "service.yaml")
           }
         }
       }
