@@ -19,10 +19,9 @@ pipeline {
 
     stage('Deploying React.js container to Kubernetes') {
       steps {
-        withCredentials([kubeconfigContent(credentialsId: 'sss')]) {
-    sh 'kubectl get node'
-}
-      }
+       withKubeConfig([credentialsId: 'sss', serverUrl: 'https://192.168.49.2:8443']) {
+      sh 'kubectl apply -f my-kubernetes-directory'
+    }
     }
 
   }
