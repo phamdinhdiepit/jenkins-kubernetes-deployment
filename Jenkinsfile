@@ -19,9 +19,9 @@ pipeline {
 
     stage('Deploying React.js container to Kubernetes') {
       steps {
-        kubeconfig(credentialsId: 'sss') {
-            sh 'kubectl get node'
-          }
+        withCredentials([kubeconfigContent(credentialsId: 'sss')]) {
+    sh 'kubectl get node'
+}
       }
     }
 
