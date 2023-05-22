@@ -36,7 +36,7 @@ pipeline {
       }
     }
 
-    stage('Deploying React.js container to Kubernetes') {
+    stage('Deploying React.js container to Kubernetes using minikune') {
       steps{
       withKubeConfig([credentialsId: 'sss']) {
        
