@@ -42,6 +42,7 @@ pipeline {
        
         sh 'kubectl apply -f deployment.yaml'
         sh 'kubectl apply -f service.yaml'
+        sh 'kubectl port-forward --address 0.0.0.0 services/service 11115:3000'
     }
       }
     }
